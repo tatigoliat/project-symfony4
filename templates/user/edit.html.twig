@@ -1,0 +1,36 @@
+<style>
+th, td {
+  padding: 10px;
+}
+th {
+  text-align: right;
+}
+</style>
+
+<h1>Create or Update User:</h1>
+
+{{ form_start(form) }}
+
+<table>
+  <tbody>
+    <tr>
+      <th>Name:</th>
+      <td>{{ form_widget(form.name) }}</td>
+    </tr>
+    <tr>
+      <th>User:</th>
+      <td>{{ form_widget(form.username) }}</td>
+    </tr>
+    <tr>
+      <th>Password:</th>
+      <td>{{ form_widget(form.password) }}</td>
+    </tr>
+    <tr>
+      <th>Rol:</th>
+      <td>{{ form_widget(form.roles) }}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+{{ form_end(form) }}

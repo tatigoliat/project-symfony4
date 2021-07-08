@@ -1,0 +1,54 @@
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+    th {
+        text-align: left;
+    }
+</style>
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+    th {
+        text-align: left;
+    }
+</style>
+
+<h1>All Users</h1>
+
+{% if users is not empty %}
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Rol</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+                <tr>
+                    <td>{{ u.name }}</td>
+                    <td>{{ u.username }}</td>
+                    <td>{{ u.roles }}</td>
+                    {% if u.roles == 'ADMIN' %}
+                        <td><a href="delete-user/{{ u.id }}">Delete</a></td>
+                        <td><a href="update-user/{{ u.id }}">Update</a></td>
+                    {% else %}
+                        <td>N/A</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No user found.</p>
+{% endif %}
+
+<br/>
+
+    <a href="/edit">Create New</a>

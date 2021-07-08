@@ -1,0 +1,15 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+update:
+  path: /update-user/{id}
+  controller: App\Controller\UserController::updateUser
+
+delete:
+  path: /delete-user/{id}
+  controller: App\Controller\UserController::deleteUser
+
+index:
+  path: /index
+  controller: App\Controller\UserController::index
