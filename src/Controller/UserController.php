@@ -40,13 +40,7 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-
-            // $users = $this->getDoctrine()
-                // ->getRepository('App\Entity\User')
-                // ->findAll();
-            // return $this->render('user/index.html.twig', [
-                // 'users' => $users,
-            // ]);
+            
             return $this->redirect('/index');
         }
 
