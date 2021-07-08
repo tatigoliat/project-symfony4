@@ -7,9 +7,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+// use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 
 class UserController extends AbstractController
 {
+
+    // private $session;
+    
     /**
      * @Route("/index", name="index")
      */
@@ -40,7 +46,7 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            
+
             return $this->redirect('/index');
         }
 
@@ -96,4 +102,31 @@ class UserController extends AbstractController
 
         return $this->redirect('/index');
     }
+
+
+    // public function page(equest $request, $id)
+    // {
+    //     // Get USERS ROLES: PAGE_1
+    //     if(!empty($id) || $id==1) {
+    //         $users = $this->getDoctrine()
+    //             ->getRepository('App\Entity\User')
+    //             ->findBy(
+    //             array('roles' => 'PAGE_1')
+    //         );
+    //     }
+
+    //     // Get USERS ROLES: PAGE_2
+    //     if(!empty($id) || $id==2) {
+    //         $users = $this->getDoctrine()
+    //             ->getRepository('App\Entity\User')
+    //             ->findBy(
+    //             array('roles' => 'PAGE_')
+    //         );
+    //     }
+
+    //     return $this->render('user/index.html.twig', [
+    //         'users' => $users,
+    //     ]);
+    // }
+
 }

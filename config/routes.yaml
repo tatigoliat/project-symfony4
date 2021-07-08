@@ -10,6 +10,6 @@ delete:
   path: /delete-user/{id}
   controller: App\Controller\UserController::deleteUser
 
-index:
-  path: /index
-  controller: App\Controller\UserController::index
+# page:
+#   path: /page/{id}
+#   controller: App\Controller\UserController::page

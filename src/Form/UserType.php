@@ -27,7 +27,8 @@ class UserType extends AbstractType
                     'ADMIN' => 'ADMIN',
                     'PAGE_1' => 'PAGE_1',
                     'PAGE_2' => 'PAGE_2'
-             ]]);
+             ]])
+        ;
 
     }
 
