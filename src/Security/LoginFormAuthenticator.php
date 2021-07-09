@@ -22,6 +22,7 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
@@ -93,7 +94,14 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->router->generate('/index'));
+        if($this->getUser()->hasRole('ADMIN'))
+            return new RedirectResponse($this->router->generate('index'));
+        elseif($this->getUser()->hasRole('PAGE_1'))
+            return new RedirectResponse($this->router->generate('page/1'));
+        elseif($this->getUser()->hasRole('PAGE_2'))
+            return new RedirectResponse($this->router->generate('page/2'));
+        
+        // return new RedirectResponse($this->router->generate('index'));
     }
 
     protected function getLoginUrl()
